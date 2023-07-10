@@ -1,0 +1,24 @@
+<h1>Ventas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Producto</th>
+      <th>Empleado</th>
+      <th>Valor</th>
+      <th>Cuando</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @store.sales.each do |s| %>
+      <tr>
+        <td><%= s.id %></td>
+        <td><%= s.product.name %></td>
+        <td><%= s.employee.name %></td>
+        <td><%= s.value %></td>
+        <td><%= s.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

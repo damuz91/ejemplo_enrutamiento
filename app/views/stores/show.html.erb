@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @store.name %>
+</p>
+
+<%= link_to 'Edit', edit_store_path(@store) %> |
+<%= link_to 'Back', stores_path %> | 
+<%= link_to 'Ventas', store_sales_path(store_id: @store.id) %> | 
+
+<h2>Empleados</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <thead>
+    <% @store.employees.each do |e| %>
+    <tr>
+      <td><%= e.id %></td>
+      <td><%= e.name %></td>
+      <td><%= link_to "Detalles", store_employee_path(store_id: @store.id, id: e.id) %></td>
+    </tr>
+    <% end %>
+  </thead>
+</table>

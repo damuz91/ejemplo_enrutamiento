@@ -1,0 +1,26 @@
+<h1>Todas las ventas de todos los productos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Producto</th>
+      <th>Empleado</th>
+      <th>Valor</th>
+      <th>Cuando</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <% product.sales.each do |sale| %>
+      <tr>
+        <td><%= sale.id %></td>
+        <td><%= sale.product.name %></td>
+        <td><%= sale.employee.name %></td>
+        <td><%= sale.value %></td>
+        <td><%= sale.created_at %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
